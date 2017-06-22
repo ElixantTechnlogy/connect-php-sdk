@@ -14,7 +14,7 @@ use \ArrayAccess;
  * @category Class
  * @package  SquareConnect
  * @author   Square Inc.
- * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
+ * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  * @link     https://squareup.com/developers
  */
 class OrderLineItemDiscount implements ArrayAccess
@@ -77,34 +77,34 @@ class OrderLineItemDiscount implements ArrayAccess
       */
     protected $name;
     /**
-      * $type The type of the discount. If it is created by API, it would be either FIXED_PERCENTAGE or FIXED_AMOUNT.  VARIABLE_* is not supported in API because the order is created at the time of sale and either percentage or amount has to be specified.
+      * $type The type of the discount. If it is created by API, it would be either `FIXED_PERCENTAGE` or `FIXED_AMOUNT`.  VARIABLE_* is not supported in API because the order is created at the time of sale and either percentage or amount has to be specified.  See [OrderLineItemDiscountType](#type-orderlineitemdiscounttype) for possible values.
       * @var string
       */
     protected $type;
     /**
-      * $percentage The percentage of the tax, as a string representation of a decimal number.  A value of `7.25` corresponds to a percentage of 7.25%.
+      * $percentage The percentage of the tax, as a string representation of a decimal number. A value of `7.25` corresponds to a percentage of 7.25%.  The percentage won't be set for an amount-based discount.
       * @var string
       */
     protected $percentage;
     /**
-      * $amount_money The amount of the discount.
+      * $amount_money The total monetary amount of the applicable discount. If it is at order level, it is the value of the order level discount. If it is at line item level, it is the value of the line item level discount.  The amount_money won't be set for a percentage-based discount.
       * @var \SquareConnect\Model\Money
       */
     protected $amount_money;
     /**
-      * $applied_money The amount of the money applied by the discount in an order.
+      * $applied_money The amount of discount actually applied to this line item.  Represents the amount of money applied to a line item as a discount When an amount-based discount is at order-level, this value is different from `amount_money` because the discount is distributed across the line items.
       * @var \SquareConnect\Model\Money
       */
     protected $applied_money;
     /**
-      * $scope The scope of the discount.
+      * $scope Indicates the level at which the discount applies. See [OrderLineItemDiscountScope](#type-orderlineitemdiscountscope) for possible values.
       * @var string
       */
     protected $scope;
 
     /**
      * Constructor
-     * @param mixed[] $data Associated array of property value initalizing the model
+     * @param mixed[] $data Associated array of property value initializing the model
      */
     public function __construct(array $data = null)
     {
@@ -171,7 +171,7 @@ class OrderLineItemDiscount implements ArrayAccess
   
     /**
      * Sets type
-     * @param string $type The type of the discount. If it is created by API, it would be either FIXED_PERCENTAGE or FIXED_AMOUNT.  VARIABLE_* is not supported in API because the order is created at the time of sale and either percentage or amount has to be specified.
+     * @param string $type The type of the discount. If it is created by API, it would be either `FIXED_PERCENTAGE` or `FIXED_AMOUNT`.  VARIABLE_* is not supported in API because the order is created at the time of sale and either percentage or amount has to be specified.  See [OrderLineItemDiscountType](#type-orderlineitemdiscounttype) for possible values.
      * @return $this
      */
     public function setType($type)
@@ -190,7 +190,7 @@ class OrderLineItemDiscount implements ArrayAccess
   
     /**
      * Sets percentage
-     * @param string $percentage The percentage of the tax, as a string representation of a decimal number.  A value of `7.25` corresponds to a percentage of 7.25%.
+     * @param string $percentage The percentage of the tax, as a string representation of a decimal number. A value of `7.25` corresponds to a percentage of 7.25%.  The percentage won't be set for an amount-based discount.
      * @return $this
      */
     public function setPercentage($percentage)
@@ -209,7 +209,7 @@ class OrderLineItemDiscount implements ArrayAccess
   
     /**
      * Sets amount_money
-     * @param \SquareConnect\Model\Money $amount_money The amount of the discount.
+     * @param \SquareConnect\Model\Money $amount_money The total monetary amount of the applicable discount. If it is at order level, it is the value of the order level discount. If it is at line item level, it is the value of the line item level discount.  The amount_money won't be set for a percentage-based discount.
      * @return $this
      */
     public function setAmountMoney($amount_money)
@@ -228,7 +228,7 @@ class OrderLineItemDiscount implements ArrayAccess
   
     /**
      * Sets applied_money
-     * @param \SquareConnect\Model\Money $applied_money The amount of the money applied by the discount in an order.
+     * @param \SquareConnect\Model\Money $applied_money The amount of discount actually applied to this line item.  Represents the amount of money applied to a line item as a discount When an amount-based discount is at order-level, this value is different from `amount_money` because the discount is distributed across the line items.
      * @return $this
      */
     public function setAppliedMoney($applied_money)
@@ -247,7 +247,7 @@ class OrderLineItemDiscount implements ArrayAccess
   
     /**
      * Sets scope
-     * @param string $scope The scope of the discount.
+     * @param string $scope Indicates the level at which the discount applies. See [OrderLineItemDiscountScope](#type-orderlineitemdiscountscope) for possible values.
      * @return $this
      */
     public function setScope($scope)

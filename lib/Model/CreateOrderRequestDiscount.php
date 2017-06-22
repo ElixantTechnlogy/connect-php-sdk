@@ -14,7 +14,7 @@ use \ArrayAccess;
  * @category Class
  * @package  SquareConnect
  * @author   Square Inc.
- * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
+ * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  * @link     https://squareup.com/developers
  */
 class CreateOrderRequestDiscount implements ArrayAccess
@@ -65,19 +65,19 @@ class CreateOrderRequestDiscount implements ArrayAccess
       */
     protected $name;
     /**
-      * $percentage The percentage of the tax, as a string representation of a decimal number.  A value of `7.25` corresponds to a percentage of 7.25%. This value range between 0.0 up to 100.0
+      * $percentage The percentage of the discount, as a string representation of a decimal number.  A value of `7.25` corresponds to a percentage of 7.25%. This value range between 0.0 up to 100.0
       * @var string
       */
     protected $percentage;
     /**
-      * $amount_money The amount of the discount.
+      * $amount_money The monetary amount of the discount.
       * @var \SquareConnect\Model\Money
       */
     protected $amount_money;
 
     /**
      * Constructor
-     * @param mixed[] $data Associated array of property value initalizing the model
+     * @param mixed[] $data Associated array of property value initializing the model
      */
     public function __construct(array $data = null)
     {
@@ -129,7 +129,7 @@ class CreateOrderRequestDiscount implements ArrayAccess
   
     /**
      * Sets percentage
-     * @param string $percentage The percentage of the tax, as a string representation of a decimal number.  A value of `7.25` corresponds to a percentage of 7.25%. This value range between 0.0 up to 100.0
+     * @param string $percentage The percentage of the discount, as a string representation of a decimal number.  A value of `7.25` corresponds to a percentage of 7.25%. This value range between 0.0 up to 100.0
      * @return $this
      */
     public function setPercentage($percentage)
@@ -148,7 +148,7 @@ class CreateOrderRequestDiscount implements ArrayAccess
   
     /**
      * Sets amount_money
-     * @param \SquareConnect\Model\Money $amount_money The amount of the discount.
+     * @param \SquareConnect\Model\Money $amount_money The monetary amount of the discount.
      * @return $this
      */
     public function setAmountMoney($amount_money)

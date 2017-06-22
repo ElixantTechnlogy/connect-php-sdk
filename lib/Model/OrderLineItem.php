@@ -14,7 +14,7 @@ use \ArrayAccess;
  * @category Class
  * @package  SquareConnect
  * @author   Square Inc.
- * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
+ * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  * @link     https://squareup.com/developers
  */
 class OrderLineItem implements ArrayAccess
@@ -24,7 +24,6 @@ class OrderLineItem implements ArrayAccess
       * @var string[]
       */
     static $swaggerTypes = array(
-        'id' => 'string',
         'name' => 'string',
         'quantity' => 'string',
         'taxes' => '\SquareConnect\Model\OrderLineItemTax[]',
@@ -40,7 +39,6 @@ class OrderLineItem implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        'id' => 'id',
         'name' => 'name',
         'quantity' => 'quantity',
         'taxes' => 'taxes',
@@ -56,7 +54,6 @@ class OrderLineItem implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        'id' => 'setId',
         'name' => 'setName',
         'quantity' => 'setQuantity',
         'taxes' => 'setTaxes',
@@ -72,7 +69,6 @@ class OrderLineItem implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        'id' => 'getId',
         'name' => 'getName',
         'quantity' => 'getQuantity',
         'taxes' => 'getTaxes',
@@ -83,11 +79,6 @@ class OrderLineItem implements ArrayAccess
         'total_money' => 'getTotalMoney'
     );
   
-    /**
-      * $id The line item's ID, unique only within this order.
-      * @var string
-      */
-    protected $id;
     /**
       * $name The name of the line item.
       * @var string
@@ -131,16 +122,11 @@ class OrderLineItem implements ArrayAccess
 
     /**
      * Constructor
-     * @param mixed[] $data Associated array of property value initalizing the model
+     * @param mixed[] $data Associated array of property value initializing the model
      */
     public function __construct(array $data = null)
     {
         if ($data != null) {
-            if (isset($data["id"])) {
-              $this->id = $data["id"];
-            } else {
-              $this->id = null;
-            }
             if (isset($data["name"])) {
               $this->name = $data["name"];
             } else {
@@ -182,25 +168,6 @@ class OrderLineItem implements ArrayAccess
               $this->total_money = null;
             }
         }
-    }
-    /**
-     * Gets id
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-  
-    /**
-     * Sets id
-     * @param string $id The line item's ID, unique only within this order.
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-        return $this;
     }
     /**
      * Gets name

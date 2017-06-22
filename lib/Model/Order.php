@@ -14,7 +14,7 @@ use \ArrayAccess;
  * @category Class
  * @package  SquareConnect
  * @author   Square Inc.
- * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
+ * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  * @link     https://squareup.com/developers
  */
 class Order implements ArrayAccess
@@ -24,7 +24,6 @@ class Order implements ArrayAccess
       * @var string[]
       */
     static $swaggerTypes = array(
-        'id' => 'string',
         'location_id' => 'string',
         'reference_id' => 'string',
         'line_items' => '\SquareConnect\Model\OrderLineItem[]',
@@ -38,7 +37,6 @@ class Order implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        'id' => 'id',
         'location_id' => 'location_id',
         'reference_id' => 'reference_id',
         'line_items' => 'line_items',
@@ -52,7 +50,6 @@ class Order implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        'id' => 'setId',
         'location_id' => 'setLocationId',
         'reference_id' => 'setReferenceId',
         'line_items' => 'setLineItems',
@@ -66,7 +63,6 @@ class Order implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        'id' => 'getId',
         'location_id' => 'getLocationId',
         'reference_id' => 'getReferenceId',
         'line_items' => 'getLineItems',
@@ -75,11 +71,6 @@ class Order implements ArrayAccess
         'total_discount_money' => 'getTotalDiscountMoney'
     );
   
-    /**
-      * $id The order's unique ID.  This value is not present if the order was not created with the [CreateOrder](#endpoint-createorder) endpoint.
-      * @var string
-      */
-    protected $id;
     /**
       * $location_id The ID of the merchant location this order is associated with.
       * @var string
@@ -113,16 +104,11 @@ class Order implements ArrayAccess
 
     /**
      * Constructor
-     * @param mixed[] $data Associated array of property value initalizing the model
+     * @param mixed[] $data Associated array of property value initializing the model
      */
     public function __construct(array $data = null)
     {
         if ($data != null) {
-            if (isset($data["id"])) {
-              $this->id = $data["id"];
-            } else {
-              $this->id = null;
-            }
             if (isset($data["location_id"])) {
               $this->location_id = $data["location_id"];
             } else {
@@ -154,25 +140,6 @@ class Order implements ArrayAccess
               $this->total_discount_money = null;
             }
         }
-    }
-    /**
-     * Gets id
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-  
-    /**
-     * Sets id
-     * @param string $id The order's unique ID.  This value is not present if the order was not created with the [CreateOrder](#endpoint-createorder) endpoint.
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-        return $this;
     }
     /**
      * Gets location_id

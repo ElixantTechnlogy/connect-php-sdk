@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | The line item&#39;s ID, unique only within this order. | [optional] 
 **name** | **string** | The name of the line item. | [optional] 
 **quantity** | **string** | The quantity of the product to purchase. Currently, this string must have an integer value. | [optional] 
 **taxes** | [**\SquareConnect\Model\OrderLineItemTax[]**](OrderLineItemTax.md) | The taxes applied to this line item. | [optional] 
