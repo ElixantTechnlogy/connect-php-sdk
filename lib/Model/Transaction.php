@@ -32,7 +32,6 @@ class Transaction implements ArrayAccess
         'reference_id' => 'string',
         'product' => 'string',
         'client_id' => 'string',
-        'order' => '\SquareConnect\Model\Order',
         'shipping_address' => '\SquareConnect\Model\Address'
     );
   
@@ -49,7 +48,6 @@ class Transaction implements ArrayAccess
         'reference_id' => 'reference_id',
         'product' => 'product',
         'client_id' => 'client_id',
-        'order' => 'order',
         'shipping_address' => 'shipping_address'
     );
   
@@ -66,7 +64,6 @@ class Transaction implements ArrayAccess
         'reference_id' => 'setReferenceId',
         'product' => 'setProduct',
         'client_id' => 'setClientId',
-        'order' => 'setOrder',
         'shipping_address' => 'setShippingAddress'
     );
   
@@ -83,7 +80,6 @@ class Transaction implements ArrayAccess
         'reference_id' => 'getReferenceId',
         'product' => 'getProduct',
         'client_id' => 'getClientId',
-        'order' => 'getOrder',
         'shipping_address' => 'getShippingAddress'
     );
   
@@ -127,11 +123,6 @@ class Transaction implements ArrayAccess
       * @var string
       */
     protected $client_id;
-    /**
-      * $order The order associated with this transaction, if any.
-      * @var \SquareConnect\Model\Order
-      */
-    protected $order;
     /**
       * $shipping_address The shipping address provided in the request, if any.
       * @var \SquareConnect\Model\Address
@@ -184,11 +175,6 @@ class Transaction implements ArrayAccess
               $this->client_id = $data["client_id"];
             } else {
               $this->client_id = null;
-            }
-            if (isset($data["order"])) {
-              $this->order = $data["order"];
-            } else {
-              $this->order = null;
             }
             if (isset($data["shipping_address"])) {
               $this->shipping_address = $data["shipping_address"];
@@ -347,25 +333,6 @@ class Transaction implements ArrayAccess
     public function setClientId($client_id)
     {
         $this->client_id = $client_id;
-        return $this;
-    }
-    /**
-     * Gets order
-     * @return \SquareConnect\Model\Order
-     */
-    public function getOrder()
-    {
-        return $this->order;
-    }
-  
-    /**
-     * Sets order
-     * @param \SquareConnect\Model\Order $order The order associated with this transaction, if any.
-     * @return $this
-     */
-    public function setOrder($order)
-    {
-        $this->order = $order;
         return $this;
     }
     /**
