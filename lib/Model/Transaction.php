@@ -32,7 +32,8 @@ class Transaction implements ArrayAccess
         'reference_id' => 'string',
         'product' => 'string',
         'client_id' => 'string',
-        'shipping_address' => '\SquareConnect\Model\Address'
+        'shipping_address' => '\SquareConnect\Model\Address',
+        'order_id' => 'string'
     );
   
     /** 
@@ -48,7 +49,8 @@ class Transaction implements ArrayAccess
         'reference_id' => 'reference_id',
         'product' => 'product',
         'client_id' => 'client_id',
-        'shipping_address' => 'shipping_address'
+        'shipping_address' => 'shipping_address',
+        'order_id' => 'order_id'
     );
   
     /**
@@ -64,7 +66,8 @@ class Transaction implements ArrayAccess
         'reference_id' => 'setReferenceId',
         'product' => 'setProduct',
         'client_id' => 'setClientId',
-        'shipping_address' => 'setShippingAddress'
+        'shipping_address' => 'setShippingAddress',
+        'order_id' => 'setOrderId'
     );
   
     /**
@@ -80,7 +83,8 @@ class Transaction implements ArrayAccess
         'reference_id' => 'getReferenceId',
         'product' => 'getProduct',
         'client_id' => 'getClientId',
-        'shipping_address' => 'getShippingAddress'
+        'shipping_address' => 'getShippingAddress',
+        'order_id' => 'getOrderId'
     );
   
     /**
@@ -128,6 +132,11 @@ class Transaction implements ArrayAccess
       * @var \SquareConnect\Model\Address
       */
     protected $shipping_address;
+    /**
+      * $order_id The order_id is an identifier for the order associated with this transaction, if any.
+      * @var string
+      */
+    protected $order_id;
 
     /**
      * Constructor
@@ -180,6 +189,11 @@ class Transaction implements ArrayAccess
               $this->shipping_address = $data["shipping_address"];
             } else {
               $this->shipping_address = null;
+            }
+            if (isset($data["order_id"])) {
+              $this->order_id = $data["order_id"];
+            } else {
+              $this->order_id = null;
             }
         }
     }
@@ -352,6 +366,25 @@ class Transaction implements ArrayAccess
     public function setShippingAddress($shipping_address)
     {
         $this->shipping_address = $shipping_address;
+        return $this;
+    }
+    /**
+     * Gets order_id
+     * @return string
+     */
+    public function getOrderId()
+    {
+        return $this->order_id;
+    }
+  
+    /**
+     * Sets order_id
+     * @param string $order_id The order_id is an identifier for the order associated with this transaction, if any.
+     * @return $this
+     */
+    public function setOrderId($order_id)
+    {
+        $this->order_id = $order_id;
         return $this;
     }
     /**

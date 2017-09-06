@@ -185,8 +185,6 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [Address](docs/Model/Address.md)
- - [ApplicationReceivable](docs/Model/ApplicationReceivable.md)
- - [ApplicationReceivableRefund](docs/Model/ApplicationReceivableRefund.md)
  - [BatchDeleteCatalogObjectsRequest](docs/Model/BatchDeleteCatalogObjectsRequest.md)
  - [BatchDeleteCatalogObjectsResponse](docs/Model/BatchDeleteCatalogObjectsResponse.md)
  - [BatchRetrieveCatalogObjectsRequest](docs/Model/BatchRetrieveCatalogObjectsRequest.md)
